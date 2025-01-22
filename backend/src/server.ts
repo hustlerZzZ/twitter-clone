@@ -4,10 +4,11 @@ import mongoose from "mongoose";
 
 dotenv.config({ path: "config.env" });
 
-const DB = process.env.DB || "mongodb://localhost:27017/twitterDB";
+const DB = process.env.DB!;
+const PORT = process.env.PORT!;
 
 mongoose.connect(DB).then(() => console.log("DB connection success!"));
 
-app.listen(6969, () => {
-  console.log("Server is running well!");
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
 });
